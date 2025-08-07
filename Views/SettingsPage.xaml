@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shortee.Views.SettingsPage"
+             xmlns:helpers="clr-namespace:Shortee.Helpers"
+             Title="Settings">
+    <ScrollView>
+        <VerticalStackLayout Padding="20,10" Spacing="10">
+            <Label Text="Appearance" FontAttributes="Bold" Padding="0,10,0,0"/>
+            <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,40" Padding="0">
+                <Label Grid.Row="0" Grid.Column="0" Text="Theme" VerticalTextAlignment="End"/>
+                <Label Grid.Row="1" Grid.Column="0" Text="System" FontSize="12" TextColor="{DynamicResource Gray500}" VerticalTextAlignment="Start"/>
+
+                <Switch Grid.RowSpan="2" Grid.Column="1" HorizontalOptions="End" VerticalOptions="Center"/>
+            </Grid>
+
+            <Label Text="General" FontAttributes="Bold" Padding="0,10,0,0"/>
+            <Grid ColumnDefinitions="*,40" Padding="0">
+                <Label Grid.Column="0" Text="Notification"/>
+                <Switch Grid.Column="1" HorizontalOptions="End"/>
+            </Grid>
+
+            <Label Text="Support" FontAttributes="Bold" Padding="0,10,0,0"/>
+            <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,40" Padding="0" RowSpacing="10">
+                <Label Grid.Row="0" Grid.Column="0" Text="Help Center"/>
+                <Label Grid.Row="0" Grid.Column="1" Text="{x:Static helpers:Icon.ArrowRight}" FontFamily="Icons" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+
+                <Label Grid.Row="1" Grid.Column="0" Text="Contact Us"/>
+                <Label Grid.Row="1" Grid.Column="1" Text="{x:Static helpers:Icon.ArrowRight}" FontFamily="Icons" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+
+                <Label Grid.Row="2" Grid.Column="0" Text="About"/>
+                <Label Grid.Row="2" Grid.Column="1" Text="{x:Static helpers:Icon.ArrowRight}" FontFamily="Icons" FontSize="Medium" FontAttributes="Bold" HorizontalTextAlignment="End"/>
+            </Grid>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

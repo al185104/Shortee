@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shortee.Views.Modals.DetailsPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             Title="Details">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,Auto,Auto,Auto,Auto,360,Auto,Auto,Auto">
+            <Label Grid.Row="0" Text="Original URL" FontAttributes="Bold"/>
+            <Label Grid.Row="1" Text="{Binding ShortURL.OriginalUrl}"/>
+
+            <Label Grid.Row="2" Text="Short URL" FontAttributes="Bold"/>
+            <Label Grid.Row="3" Text="{Binding ShortURL.ShortenedUrl}"/>
+
+            <Label Grid.Row="4" Text="QR Code" FontAttributes="Bold"/>
+
+            <Border Grid.Row="5" Padding="20" BackgroundColor="{DynamicResource Secondary}">
+                <zxing:BarcodeGeneratorView Format="QrCode" Value="{Binding ShortURL.ShortenedUrl}"
+                HorizontalOptions="Fill" VerticalOptions="Fill"/>
+            </Border>
+
+            <Button Grid.Row="6" Text="Copy Link" HorizontalOptions="Fill" Command="{Binding CopyToClipboardCommand}"/>
+            <Button Grid.Row="7" Text="Delete" HorizontalOptions="Fill" BackgroundColor="{DynamicResource White}" TextColor="{DynamicResource Primary}" BorderColor="{DynamicResource Primary}" BorderWidth="1"
+                    Command="{Binding DeleteHistoryItemCommand}"/>
+            <Button Grid.Row="8" Text="Download QRCode" HorizontalOptions="Fill" BackgroundColor="{DynamicResource White}" TextColor="{DynamicResource Primary}" BorderColor="{DynamicResource Primary}" BorderWidth="1"
+                    Command="{Binding DownloadQRCodeCommand}"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>
