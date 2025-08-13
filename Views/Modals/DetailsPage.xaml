@@ -14,7 +14,14 @@
 
             <Label Grid.Row="4" Text="QR Code" FontAttributes="Bold"/>
 
+            <Border Grid.Row="4" BackgroundColor="{DynamicResource Secondary}" StrokeShape="RoundRectangle 10 10 10 10" Padding="20,5" Stroke="Transparent" HorizontalOptions="End">
+                <Label Text="{Binding ShortURL.ClickCount}" TextColor="White" FontAttributes="Bold"/>
+            </Border>
+
             <Border Grid.Row="5" Padding="20" BackgroundColor="{DynamicResource Secondary}">
+                <Border.GestureRecognizers>
+                    <TapGestureRecognizer NumberOfTapsRequired="1" Command="{Binding BarcodeTappedCommand}"/>
+                </Border.GestureRecognizers>
                 <zxing:BarcodeGeneratorView Format="QrCode" Value="{Binding ShortURL.ShortenedUrl}"
                 HorizontalOptions="Fill" VerticalOptions="Fill"/>
             </Border>

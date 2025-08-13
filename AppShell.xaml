@@ -10,7 +10,8 @@
     <TabBar>
         <ShellContent Title="Home" Route="HomePage" Icon="{FontImage Glyph={x:Static helpers:Icon.Home}, FontFamily=Icons}" ContentTemplate="{DataTemplate views:HomePage}"/>
         <ShellContent Title="History" Route="HistoryPage" Icon="{FontImage Glyph={x:Static helpers:Icon.Clock}, FontFamily=Icons}" ContentTemplate="{DataTemplate views:HistoryPage}"/>
-        <ShellContent Title="Settings" Route="SettingsPage" Icon="{FontImage Glyph={x:Static helpers:Icon.Settings}, FontFamily=Icons}" ContentTemplate="{DataTemplate views:SettingsPage}"/>
+        <ShellContent Title="Scan" Route="ScanQRPage" Icon="{FontImage Glyph={x:Static helpers:Icon.Maximize}, FontFamily=Icons}" ContentTemplate="{DataTemplate views:ScanQRPage}"/>
+        <!--<ShellContent Title="Settings" Route="SettingsPage" Icon="{FontImage Glyph={x:Static helpers:Icon.Settings}, FontFamily=Icons}" ContentTemplate="{DataTemplate views:SettingsPage}"/>-->
     </TabBar>
 
 </Shell>

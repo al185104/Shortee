@@ -2,5 +2,5 @@
 
 public interface IDataService
 {
-    public IRepository<ShortURLModel> ShortURLRepo { get; }
+    public IScannerService ShortURLRepo { get; }
 }

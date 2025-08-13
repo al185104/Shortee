@@ -1,11 +1,33 @@
-﻿namespace Shortee.ViewModels;
+﻿using CommunityToolkit.Maui.Core.Extensions;
+
+namespace Shortee.ViewModels;
 
 public partial class HistoryViewModel : BaseViewModel
 {
     private readonly IDataService _dataService;
 
     [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FilteredHistory))]
     private ObservableCollection<ShortURLModel> _history = new();
+
+    [ObservableProperty]
+    [NotifyPropertyChangedFor(nameof(FilteredHistory))]
+    private string _searchText;
+
+    //apply filtered
+    public ObservableCollection<ShortURLModel> FilteredHistory {
+        get {
+            if (string.IsNullOrEmpty(_searchText))
+                return _history;
+            else
+            {
+                return _history.Where(i =>
+                    i.OriginalUrl.Contains(_searchText, StringComparison.OrdinalIgnoreCase) ||
+                    i.ShortenedUrl.Contains(_searchText, StringComparison.OrdinalIgnoreCase))
+                    .ToObservableCollection();
+            }
+        }
+    }
 
     public HistoryViewModel(IDataService dataService)
     {
