@@ -2,13 +2,13 @@
 
 public class DataService : IDataService
 {
-    private Repository<ShortURLModel> _shortURLRepo;
+    private ScannerService _shortURLRepo;
 
     public DataService()
     {
         var dbPath = Path.Combine(FileSystem.AppDataDirectory, "shortee.db3");
-        _shortURLRepo = new Repository<ShortURLModel>(dbPath);
+        _shortURLRepo = new ScannerService(dbPath);
     }
 
-    public IRepository<ShortURLModel> ShortURLRepo => _shortURLRepo;
+    public IScannerService ShortURLRepo => _shortURLRepo;
 }

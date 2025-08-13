@@ -5,6 +5,9 @@
              xmlns:helpers="clr-namespace:Shortee.Helpers"
              xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
              Title="Home">
+    <ContentPage.ToolbarItems>
+        <ToolbarItem IconImageSource="{FontImage Glyph={x:Static helpers:Icon.Settings}, FontFamily=Icons, Color=Black,Size=22}" Command="{Binding ShowSettingsCommand}"/>
+    </ContentPage.ToolbarItems>
     <ScrollView>
         <Grid RowDefinitions="Auto,Auto,Auto,360" RowSpacing="15">
             <Entry Grid.Row="0" Placeholder="Enter URL" Text="{Binding LongURL, Mode=TwoWay}" HorizontalOptions="Fill" />

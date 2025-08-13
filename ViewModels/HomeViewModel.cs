@@ -60,5 +60,10 @@ public partial class HomeViewModel : BaseViewModel
         await Clipboard.SetTextAsync(ShortURL);
         await Shell.Current.DisplayAlert("Success", "Short URL copied to clipboard.", "OK");
     }
-
+    
+    [RelayCommand]
+    async Task ShowSettingsAsync()
+    {
+        await Shell.Current.GoToAsync(nameof(SettingsPage), true);
+    }
 }

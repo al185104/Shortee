@@ -6,18 +6,22 @@
              xmlns:helpers="clr-namespace:Shortee.Helpers"
              Title="History">
     <Grid RowDefinitions="Auto,*">
-        <SearchBar Grid.Row="0" Placeholder="Search" Margin="0,0,0,20"/>
-        <CollectionView Grid.Row="1" ItemsSource="{Binding History}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
+        <SearchBar Grid.Row="0" Placeholder="Search" Margin="0,0,0,20" Text="{Binding SearchText}"/>
+        <CollectionView Grid.Row="1" ItemsSource="{Binding FilteredHistory}" SelectionMode="Single" SelectionChanged="CollectionView_SelectionChanged">
             <CollectionView.ItemsLayout>
                 <LinearItemsLayout Orientation="Vertical" ItemSpacing="5"/>
             </CollectionView.ItemsLayout>
             <CollectionView.ItemTemplate>
                 <DataTemplate x:DataType="models:ShortURLModel">
-                    <Grid RowDefinitions="Auto,Auto" ColumnDefinitions="*,40" Padding="10">
+                    <Grid RowDefinitions="Auto,Auto,Auto" ColumnDefinitions="*,40" Padding="10" RowSpacing="2">
                         <Label Grid.Row="0" Grid.Column="0" Text="{Binding OriginalUrl}" LineBreakMode="TailTruncation" VerticalTextAlignment="End"/>
                         <Label Grid.Row="1" Grid.Column="0" Text="{Binding ShortenedUrl}" FontSize="12" TextColor="{DynamicResource Gray500}" VerticalTextAlignment="Start"/>
 
-                        <Label Grid.RowSpan="2" Grid.Column="1" Text="{x:Static helpers:Icon.ChevronRight}" FontFamily="Icons" FontSize="Medium" 
+                        <Border Grid.Row="2" Grid.Column="0" BackgroundColor="{DynamicResource Secondary}" StrokeShape="RoundRectangle 10 10 10 10" Padding="20,5" Stroke="Transparent" HorizontalOptions="Start">
+                            <Label Text="{Binding ClickCount}" TextColor="White" FontAttributes="Bold"/>
+                        </Border>
+
+                        <Label Grid.RowSpan="3" Grid.Column="1" Text="{x:Static helpers:Icon.ChevronRight}" FontFamily="Icons" FontSize="Medium" 
                                HorizontalOptions="End" VerticalOptions="Center"/>
                     </Grid>
                 </DataTemplate>

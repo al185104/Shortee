@@ -5,7 +5,7 @@ namespace Shortee.Services.Repository;
 
 public class Repository<T> : IRepository<T> where T : class, new()
 {
-    private readonly SQLiteAsyncConnection _database;
+    public readonly SQLiteAsyncConnection _database;
 
     public Repository(string dbPath)
     {

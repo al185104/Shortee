@@ -30,10 +30,12 @@ namespace Shortee
             builder.Services.AddSingleton<HomePage>();
             builder.Services.AddSingleton<HistoryPage>();
             builder.Services.AddSingleton<SettingsPage>();
+            builder.Services.AddTransient<ScanQRPage>();
 
             builder.Services.AddSingleton<HomeViewModel>();
             builder.Services.AddTransient<HistoryViewModel>();
             builder.Services.AddSingleton<SettingsViewModel>();
+            builder.Services.AddTransient<ScanQRViewModel>();
 
             // Register Modals
             builder.Services.AddTransient<DetailsPage>();

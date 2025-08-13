@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Shortee.Views.ScanQRPage"
+             xmlns:zxing="clr-namespace:ZXing.Net.Maui.Controls;assembly=ZXing.Net.MAUI.Controls"
+             Title="Scan QRPage">
+    <ScrollView>
+        <Grid RowDefinitions="Auto,360">
+            <Label Grid.Row="0" Text="Scan QR Code" VerticalOptions="Center"  HorizontalOptions="Start" />
+            <zxing:CameraBarcodeReaderView x:Name="qrReader" Grid.Row="1" IsTorchOn="False"
+                BarcodesDetected="qrReader_BarcodesDetected" CameraLocation="Rear" IsDetecting="True"
+                VerticalOptions="Fill" HorizontalOptions="Fill"/>
+        </Grid>
+    </ScrollView>
+</ContentPage>
